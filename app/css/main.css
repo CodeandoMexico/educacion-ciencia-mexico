@@ -1,22 +1,80 @@
 
 
 /* ==========================================================================
-   Author's custom styles
-   ========================================================================== */
+Author's custom styles
+========================================================================== */
 
 
+#verMasClass:link {
 
 
+	color: #00F;
 
 
+	font-size: 20px;
 
 
+}
 
 
+#verMasClass:visited {
 
 
+	color: #00F;
 
 
+	font-size: 20px;
 
 
+}
 
+
+ul {
+
+
+	font: inherit;
+
+
+	font-size: inherit;
+
+
+}
+
+
+li {
+
+
+	font: inherit;
+
+
+	font-size: inherit;
+
+
+}
+
+
+#canvas_container {
+
+
+	width: 90%;
+
+
+	height: 110%;
+
+
+	border: 1px solid #aaa;
+
+
+}
+
+
+svg {
+
+
+	height: 100%;
+
+
+	width: 100%;
+
+
+}

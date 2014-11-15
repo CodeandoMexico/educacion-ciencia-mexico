@@ -1001,10 +1001,7 @@ window.onload = function () {
 
 
 	SON.push(path7289, path3930, path7279, path7277);
-	g7445.attr({
-		fill: '#00FF00'
-	})
-	var i = 0;
+
 
 	// Dibujar el rectángulo de información de cada estado
 	var myRect = rsr.rect(670, 30, 400, 250);
@@ -1169,8 +1166,6 @@ window.onload = function () {
 			break;
 		}
 
-		i++;
-
 		// Asignar texto correspondiente a cada estado y el color del mismo.
 		el.txt = rsr.text(bbox.x + bbox.width / 2, bbox.y + bbox.height / 2, "¡Hola! Soy " + nombreEstado + ".\nMi numero de maestros\nacreditados es de: " +
 			maestrosAcreditados + "\ny tengo " + maestrosPorEstado + " maestros").attr({
@@ -1258,7 +1253,6 @@ window.onload = function () {
 
 		}
 
-		i++;
 		el.txt = rsr.text(bbox.x + bbox.width / 2, bbox.y + bbox.height / 2, "¡Hola! Soy " + nombreEstado + ".\nMi numero de maestros\nacreditados es de: " +
 			maestrosAcreditados + "\ny tengo " + maestrosPorEstado + " maestros").attr({
 			fill: '#000000',
