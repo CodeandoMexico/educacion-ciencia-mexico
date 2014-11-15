@@ -1,5 +1,10 @@
 window.onload = function () {
-	var rsr = new Raphael(document.getElementById("canvas_container"), '1100', '680');
+
+	var w = 1100;
+	var h = 680;
+	var rsr = Raphael("canvas_container");
+	rsr.setViewBox(0, 0, w, h, true);
+	rsr.canvas.setAttribute('preserveAspectRatio', 'none');
 
 	var grupo = rsr.set();
 	var PUE = rsr.path("M 608.3077,562.51895 C 607.26228,561.79187 604.94444,560.87873 603.15694,560.48975 C 601.36944,560.10077 599.90694,559.41668 599.90694,558.96954 C 599.90694,558.5224 597.66895,556.44984 594.93362,554.36386 L 589.96031,550.57116 L 594.06269,548.24096 C 596.92233,546.61666 598.53251,546.21572 599.37801,546.91742 C 600.99167,548.25664 601.90694,547.19163 601.90694,543.97476 C 601.90694,542.52643 602.45817,540.7902 603.1319,540.11647 C 604.0898,539.15857 604.09426,538.47103 603.15238,536.96283 C 602.39253,535.74612 602.30949,534.81068 602.92742,534.42877 C 603.47443,534.0907 603.90694,528.77158 603.90694,522.38241 C 603.90694,511.88635 604.06089,510.94143 605.77094,510.94143 C 606.82225,510.94143 608.86453,512.71574 610.45516,515.01102 C 612.00629,517.24929 614.56498,519.74747 616.14114,520.56254 C 619.05569,522.06971 622.90694,521.63258 622.90694,519.79459 C 622.90694,519.19565 624.10316,519.04525 625.83741,519.42616 C 628.19686,519.94438 628.99296,519.64922 629.92303,517.91137 C 630.67974,516.49744 631.72581,515.92231 632.95579,516.24395 C 633.98848,516.51401 635.35966,516.10086 636.00287,515.32584 C 636.93165,514.20673 636.61991,513.40476 634.48811,511.42908 C 633.01179,510.06087 631.15208,508.94143 630.35542,508.94143 C 629.55876,508.94143 628.90694,508.28877 628.90694,507.49108 C 628.90694,506.69338 626.68091,505.01951 623.9602,503.77136 C 618.36961,501.20663 617.05166,498.51494 619.26528,494.1828 C 620.03571,492.67505 620.99677,489.90722 621.40096,488.03207 C 622.02332,485.14476 621.7738,484.34426 619.7714,482.8043 C 618.45644,481.79302 617.99648,480.97603 618.73513,480.96367 C 620.56864,480.93297 627.86912,472.9371 628.07361,470.73567 C 628.16527,469.74884 628.27777,468.15393 628.32361,467.19143 C 628.43802,464.78868 631.74871,461.66673 633.47843,462.33049 C 634.25769,462.62952 634.7854,463.87591 634.65111,465.10024 C 634.47989,466.66124 635.36544,467.94101 637.61521,469.38386 C 641.41572,471.82125 641.32443,473.25386 637.32444,473.94696 C 634.57873,474.42272 634.38897,474.76636 634.10169,479.78313 C 633.82755,484.57062 634.08228,485.35962 636.60169,487.52639 C 640.15572,490.58296 641.29148,490.55732 643.61468,487.36808 L 645.48924,484.79472 L 648.94809,486.61808 C 650.85046,487.62092 652.56853,488.52802 652.76603,488.63385 C 652.96353,488.73969 652.25382,490.08969 651.1889,491.63385 C 648.7306,495.19846 644.93033,506.65851 645.11792,509.94143 C 645.33053,513.66216 646.616,514.80098 652.55062,516.52622 C 658.57502,518.27756 658.6962,519.63168 652.91129,520.55673 C 649.17732,521.15381 647.2661,523.09552 648.47964,525.05906 C 648.7982,525.5745 648.08963,527.99833 646.90504,530.44535 C 644.20881,536.01501 644.58826,538.13178 648.48313,539.24882 C 650.71453,539.88877 651.79815,540.98388 652.47627,543.28427 C 653.44842,546.58215 654.75082,546.99115 659.99898,545.64666 C 662.11752,545.10392 662.84364,545.45463 663.97387,547.56649 C 665.27118,549.99053 665.15626,550.32947 662.11605,553.0459 C 658.75156,556.05207 657.17242,556.35349 646.76884,555.97527 C 643.47192,555.85541 640.84355,556.23499 640.43911,556.88937 C 639.46622,558.46355 635.74399,553.52965 636.47241,551.63141 C 638.14951,547.26096 630.75261,549.4054 628.38975,553.97467 C 626.92725,556.80284 626.92174,557.31507 628.33074,559.46548 C 630.21533,562.34172 628.86632,563.531 625.67761,561.80446 C 622.47202,560.06878 615.71791,560.14682 613.82361,561.94143 C 611.6886,563.96407 610.55602,564.08265 608.3077,562.51895 z ").attr({
@@ -1010,103 +1015,154 @@ window.onload = function () {
 	// Se inicializan las funciones de la primera lista que corresponden al movimiento del mouse
 	grupo.forEach(function (el) {
 
-		var myText;
+		var nombreEstado;
+		var maestrosAcreditados;
+		var maestrosPorEstado;
+
 		switch (el) {
 		case PUE:
-			myText = "Puebla";
+			nombreEstado = "Puebla";
+			maestrosAcreditados = 50;
+			maestrosPorEstado = 18530;
 			break;
 
 		case COL:
-			myText = "Colima";
+			nombreEstado = "Colima";
+			maestrosAcreditados = 58;
+			maestrosPorEstado = 3074;
 			break;
 
 		case JAL:
-			myText = "Jalisco";
+			nombreEstado = "Jalisco";
+			maestrosAcreditados = 111;
+			maestrosPorEstado = 28084;
 			break;
 
 		case GTO:
-			myText = "Guanajuato";
+			nombreEstado = "Guanajuato";
+			maestrosAcreditados = 1;
+			maestrosPorEstado = 18218;
 			break;
 
 		case QUE:
-			myText = "Queretaro";
+			nombreEstado = "Queretaro";
+			maestrosAcreditados = 4;
+			maestrosPorEstado = 6009;
 			break;
 
 		case YUC:
 		case YUC2:
-			myText = "Yucatan";
+			nombreEstado = "Yucatan";
+			maestrosAcreditados = 37;
+			maestrosPorEstado = 9032;
 			break;
 
 		case SLP:
-			myText = "San Luis Potosí";
+			nombreEstado = "San Luis Potosí";
+			maestrosAcreditados = 2;
+			maestrosPorEstado = 11237;
 			break;
 
 		case AGS:
-			myText = "Aguascalientes";
+			nombreEstado = "Aguascalientes";
+			maestrosAcreditados = 6;
+			maestrosPorEstado = 5575;
 			break;
 
 		case TAM:
-			myText = "Tamaulipas";
+			nombreEstado = "Tamaulipas";
+			maestrosAcreditados = 8;
+			maestrosPorEstado = 11906;
 			break;
 
 		case DUR:
-			myText = "Durango";
+			nombreEstado = "Durango";
+			maestrosAcreditados = 43;
+			maestrosPorEstado = 7129;
 			break;
 
 		case NL:
-			myText = "Nuevo León";
+			nombreEstado = "Nuevo León";
+			maestrosAcreditados = 17;
+			maestrosPorEstado = 16172;
 			break;
 
 		case COA:
-			myText = "Coahuila";
+			nombreEstado = "Coahuila";
+			maestrosAcreditados = 2;
+			maestrosPorEstado = 12076;
 			break;
 
 		case CHI:
-			myText = "Chihuahua";
+			nombreEstado = "Chihuahua";
+			maestrosAcreditados = 7;
+			maestrosPorEstado = 10200;
 			break;
 
 		case CHIA:
-			myText = "Chiapas";
+			nombreEstado = "Chiapas";
+			maestrosAcreditados = 34;
+			maestrosPorEstado = 4044;
 			break;
 
 		case OAX:
-			myText = "Oaxaca";
+			nombreEstado = "Oaxaca";
+			maestrosAcreditados = 0;
+			maestrosPorEstado = 1725;
 			break;
 
 		case GUE:
-			myText = "Guerrero";
+			nombreEstado = "Guerrero";
+			maestrosAcreditados = 24;
+			maestrosPorEstado = 12682;
 			break;
 
 		case TAB:
-			myText = "Tabasco";
+			nombreEstado = "Tabasco";
+			maestrosAcreditados = 2;
+			maestrosPorEstado = 7541;
 			break;
 
 		case MIC:
-			myText = "Michoacan";
+			nombreEstado = "Michoacan";
+			maestrosAcreditados = 6;
+			maestrosPorEstado = 6327;
 			break;
 
 		case MOR:
-			myText = "Morelos";
+			nombreEstado = "Morelos";
+			maestrosAcreditados = 14;
+			maestrosPorEstado = 6991;
 			break;
 
 		case EDO:
-			myText = "Estado de México";
+			nombreEstado = "Estado de México";
+			maestrosAcreditados = 22;
+			maestrosPorEstado = 48557;
 			break;
 
 		case DF:
-			myText = "Distrito Federal";
+			nombreEstado = "Distrito Federal";
+			maestrosAcreditados = 24;
+			maestrosPorEstado = 33373;
 			break;
 
 		case TLA:
-			myText = "Tlaxcala";
+			nombreEstado = "Tlaxcala";
+			maestrosAcreditados = 1;
+			maestrosPorEstado = 5474;
 			break;
 
 		case HID:
-			myText = "Hidalgo";
+			nombreEstado = "Hidalgo";
+			maestrosAcreditados = 50;
+			maestrosPorEstado = 18530;
 			break;
 
 		case ZAC:
-			myText = "Zacatecas";
+			nombreEstado = "Zacatecas";
+			maestrosAcreditados = 105;
+			maestrosPorEstado = 9744;
 			break;
 
 		default:
@@ -1116,8 +1172,10 @@ window.onload = function () {
 		i++;
 
 		// Asignar texto correspondiente a cada estado y el color del mismo.
-		el.txt = rsr.text(bbox.x + bbox.width / 2, bbox.y + bbox.height / 2, "I am \n" + myText).attr({
-			fill: '#ff0000'
+		el.txt = rsr.text(bbox.x + bbox.width / 2, bbox.y + bbox.height / 2, "¡Hola! Soy " + nombreEstado + ".\nMi numero de maestros\nacreditados es de: " +
+			maestrosAcreditados + "\ny tengo " + maestrosPorEstado + " maestros").attr({
+			fill: '#000000',
+			"font-size": 28
 		});
 
 		el.txt.hide();
@@ -1125,8 +1183,8 @@ window.onload = function () {
 		// Funciones correspondientes al movimiento del mouse
 		el.hover(function () {
 			el.attr({
-				"stroke": "#B00",
-				"stroke-width": "2px"
+				"stroke": "#A00",
+				"stroke-width": "2"
 			});
 			el.txt.show();
 		}, function () {
@@ -1142,38 +1200,57 @@ window.onload = function () {
 	rsrGroups.forEach(function (el) {
 
 
-		var myText;
+		var nombreEstado;
+		var maestrosAcreditados;
+		var maestrosPorEstado;
+
 		switch (el) {
 		case SIN:
-			myText = "Sinaloa";
+			nombreEstado = "Sinaloa";
+			maestrosAcreditados = 25;
+			maestrosPorEstado = 12727;
 			break;
 
 		case CAMP:
-			myText = "Campeche";
+			nombreEstado = "Campeche";
+			maestrosAcreditados = 8;
+			maestrosPorEstado = 3100;
 			break;
 
 		case VER:
-			myText = "Veracruz";
+			nombreEstado = "Veracruz";
+			maestrosAcreditados = 5;
+			maestrosPorEstado = 26832;
 			break;
 
 		case QROO:
-			myText = "Quintana Roo";
+			nombreEstado = "Quintana Roo";
+			maestrosAcreditados = 9;
+			maestrosPorEstado = 4856;
 			break;
 
 		case NAY:
-			myText = "Nayarit";
+			nombreEstado = "Nayarit";
+			maestrosAcreditados = 23;
+			maestrosPorEstado = 5588;
 			break;
 
 		case BCS:
-			myText = "Baja California Sur";
+			nombreEstado = "Baja California Sur";
+			maestrosAcreditados = 12;
+			maestrosPorEstado = 2240;
 			break;
 
 		case BCN:
-			myText = "Baja California Norte";
+			nombreEstado = "Baja California Norte";
+			maestrosAcreditados = 50;
+			maestrosPorEstado = 12733;
 			break;
 
 		case SON:
-			myText = "Sonora";
+			nombreEstado = "Sonora";
+			maestrosAcreditados = 12;
+			maestrosPorEstado = 9544;
 			break;
 
 		default:
@@ -1182,8 +1259,10 @@ window.onload = function () {
 		}
 
 		i++;
-		el.txt = rsr.text(bbox.x + bbox.width / 2, bbox.y + bbox.height / 2, "I am \n" + myText).attr({
-			fill: '#ff0000'
+		el.txt = rsr.text(bbox.x + bbox.width / 2, bbox.y + bbox.height / 2, "¡Hola! Soy " + nombreEstado + ".\nMi numero de maestros\nacreditados es de: " +
+			maestrosAcreditados + "\ny tengo " + maestrosPorEstado + " maestros").attr({
+			fill: '#000000',
+			"font-size": 28
 		});
 
 		el.txt.hide();
@@ -1192,10 +1271,10 @@ window.onload = function () {
 
 			el.hover(function () {
 				el.attr({
-					"stroke": "#B00",
-					"stroke-width": "2px"
+					"stroke": "#A00",
+					"stroke-width": "2"
 				});
-				
+
 				el.txt.show();
 			}, function () {
 				el.attr({
@@ -1205,5 +1284,136 @@ window.onload = function () {
 			});
 		}
 	});
+	
+	
+	var chart = new CanvasJS.Chart("chartContainer", {
+		title: {
+			text: "Real Estate Rates",
+			fontSize: 20
+
+		},
+		axisX: {
+			title: "Square Feets",
+			minimum: 600,
+			//labelAngle: -40,
+			maximum: 2500,
+			labelFontSize: 14,
+			titleFontSize: 18
+		},
+		axisY: {
+			title: "Prices in USD",
+			valueFormatString: "$#,##0k",
+			lineThickness: 2,
+			labelFontSize: 14,
+			titleFontSize: 18
+		},
+
+		data: [
+			{
+				type: "scatter",
+				toolTipContent: "<span style='\"'color: {color};'\"'><strong>Area: </strong></span>{x} sq.ft<br/><span style='\"'color: {color};'\"'><strong>Price: </strong></span>{y} $ ",
+				dataPoints: [
+					{
+						x: 800,
+						y: 350
+					},
+					{
+						x: 900,
+						y: 450
+					},
+					{
+						x: 850,
+						y: 450
+					},
+					{
+						x: 1250,
+						y: 700
+					},
+					{
+						x: 1100,
+						y: 650
+					},
+					{
+						x: 1350,
+						y: 850
+					},
+					{
+						x: 1200,
+						y: 900
+					},
+					{
+						x: 1410,
+						y: 1250
+					},
+					{
+						x: 1250,
+						y: 1100
+					},
+					{
+						x: 1400,
+						y: 1150
+					},
+					{
+						x: 1500,
+						y: 1050
+					},
+					{
+						x: 1330,
+						y: 1120
+					},
+					{
+						x: 1580,
+						y: 1220
+					},
+					{
+						x: 1620,
+						y: 1400
+					},
+					{
+						x: 1250,
+						y: 1450
+					},
+					{
+						x: 1350,
+						y: 1600
+					},
+					{
+						x: 1650,
+						y: 1300
+					},
+					{
+						x: 1700,
+						y: 1620
+					},
+					{
+						x: 1750,
+						y: 1700
+					},
+					{
+						x: 1830,
+						y: 1800
+					},
+					{
+						x: 1900,
+						y: 2000
+					},
+					{
+						x: 2050,
+						y: 2200
+					},
+					{
+						x: 2150,
+						y: 1960
+					},
+					{
+						x: 2250,
+						y: 1990
+					}
+				]
+			}
+		]
+	});
+
+	chart.render();
 
 }
