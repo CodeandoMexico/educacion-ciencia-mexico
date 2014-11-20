@@ -29,25 +29,10 @@ Author's custom styles
 }
 
 
-ul {
+#PartesLista {
 
 
-	font: inherit;
-
-
-	font-size: inherit;
-
-
-}
-
-
-li {
-
-
-	font: inherit;
-
-
-	font-size: inherit;
+	font-size: 20px;
 
 
 }
@@ -59,7 +44,7 @@ li {
 	width: 90%;
 
 
-	height: 110%;
+	height: 675px;
 
 
 	border: 1px solid #aaa;
