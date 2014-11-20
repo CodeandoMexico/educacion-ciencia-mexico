@@ -138,4 +138,4 @@ var data2 = {
                                         ]
 };
 
-var myBarChart2 = new Chart(ctx2).Bar(data2, {});
+var myBarChart2 = new Chart(ctx2).Bar(data2, {maintainAspectRatio:false});
