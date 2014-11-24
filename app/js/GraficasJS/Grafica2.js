@@ -122,7 +122,7 @@ var ctx2 = document.getElementById("menor").getContext("2d");
 
 var data2 = {
 
-	labels: ["Colima", "Hidalgo", "Durango", "Nayarit", "Yucatan", "Baja California Sur", "Baja Califoria", "Jalisco", "Campeche", "Sinaloa", "Puebla", "Morelos", "Quintana Roo", "Guerrero", "Chiapas", "Michoacan", "Sonora", "Aguascalientes", "Zacatecas", "Nuevo Leon", "Distrito Federal", "Tamaulipas", "Chihuahua", "Queretaro", "Estado de Mexico", "Tabasco", "Tlaxcala", "Coahuila", "San Luis Potosi", "Veracruz", "Guanajuato", ],
+	labels: [ "Puebla", "Morelos", "Quintana Roo", "Guerrero", "Chiapas", "Michoacan", "Sonora", "Aguascalientes", "Zacatecas", "Nuevo Leon", "Distrito Federal", "Tamaulipas", "Chihuahua", "Queretaro", "Estado de Mexico", "Tabasco", "Tlaxcala", "Coahuila", "San Luis Potosi", "Veracruz", "Guanajuato", ],
 
 	datasets: [
 		{
@@ -133,7 +133,7 @@ var data2 = {
 			pointStrokeColor: "#fff",
 			pointHighlightFill: "#fff",
 			pointHighlightStroke: "rgba(220,220,220,1)",
-			data: [1967, 692, 492, 421, 396, 378, 307, 296, 201, 175, 158, 157, 145, 143, 129, 94, 88, 88, 74, 70, 55, 49, 41, 40, 27, 16, 14, 14, 13, 12, 3]
+			data: [158, 157, 145, 143, 129, 94, 88, 88, 74, 70, 55, 49, 41, 40, 27, 16, 14, 14, 13, 12, 3]
                                             },
                                         ]
 };
